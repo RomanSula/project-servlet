@@ -10,8 +10,12 @@
     <script src="<c:url value="/static/jquery-3.6.0.min.js"/>"></script>
 </head>
 <body>
-<h1>Tic-Tac-Toe</h1>
-
+<h1>    Tic-Tac-Toe</h1>
+<h1>
+    <audio controls autoplay = autoplay hidden = hidden>
+    <source src="resources/Mouse-Click-03-c-FesliyanStudios.com.mp3" type="audio/mpeg">
+    </audio>
+</h1>
 <table>
     <tr>
         <td onclick="window.location='/logic?click=0'">${data.get(0).getSign()}</td>
@@ -31,15 +35,22 @@
 </table>
 
 <hr>
+
 <c:set var="CROSSES" value="<%=Sign.CROSS%>"/>
 <c:set var="NOUGHTS" value="<%=Sign.NOUGHT%>"/>
 
 <c:if test="${winner == CROSSES}">
     <h1>CROSSES WON!</h1>
+    <audio controls autoplay = autoplay hidden = hidden>
+        <source src="resources/sfx-victory5.mp3" type="audio/mpeg">
+    </audio>
     <button onclick="restart()">Play again</button>
 </c:if>
 <c:if test="${winner == NOUGHTS}">
     <h1>NOUGHTS WON!</h1>
+    <audio controls autoplay = autoplay hidden = hidden>
+        <source src="resources/game-lose-sound.mp3" type="audio/mpeg">
+    </audio>
     <button onclick="restart()">Play again</button>
 </c:if>
 <c:if test="${draw}">
